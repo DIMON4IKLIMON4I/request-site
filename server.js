@@ -12,12 +12,16 @@ if (!BOT_TOKEN || !CHAT_ID) {
   console.warn("⚠️ BOT_TOKEN или CHAT_ID не настроен. Создайте .env по образцу .env.example");
 }
 
-app.use(express.json({ limit: "50kb" }));
-app.use(express.static(path.join(__dirname, "public")));
-
-// Явно отдаём главную страницу на / для хостингов вроде Render.
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+
+app.get("/style.css", (req, res) => {
+  res.sendFile(path.join(__dirname, "style.css"));
+});
+
+app.get("/script.js", (req, res) => {
+  res.sendFile(path.join(__dirname, "script.js"));
 });
 
 function escapeTelegram(text) {
