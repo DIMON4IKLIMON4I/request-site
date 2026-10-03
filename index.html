@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Приём заявок</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <div class="logo">Заявки<span>+</span></div>
+      <nav>
+        <a href="#form">Подать заявку</a>
+        <a href="#about">Как это работает</a>
+        <button class="admin-btn" onclick="openAdmin()">Мои заявки</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge">● Приём заявок открыт</div>
+          <h1>Оставьте заявку —<br><span>мы свяжемся с вами</span></h1>
+          <p class="lead">Заполните короткую форму. Ваша заявка сохранится на этом устройстве, и вы сможете посмотреть её в разделе «Мои заявки».</p>
+          <a class="primary-btn" href="#form">Оставить заявку →</a>
+        </div>
+        <div class="hero-card">
+          <div class="card-icon">✓</div>
+          <h3>Быстро и удобно</h3>
+          <p>Форма занимает меньше минуты.</p>
+          <div class="stat"><strong>24/7</strong><span>приём заявок</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="form" class="form-section">
+      <div class="container narrow">
+        <div class="section-title">
+          <div class="eyebrow">ФОРМА ЗАЯВКИ</div>
+          <h2>Расскажите, что вам нужно</h2>
+          <p>Поля со звёздочкой обязательны для заполнения.</p>
+        </div>
+
+        <form id="requestForm" class="request-form">
+          <div class="two-cols">
+            <label>
+              Имя *
+              <input id="name" type="text" placeholder="Например, Алексей" required>
+            </label>
+            <label>
+              Телефон или email *
+              <input id="contact" type="text" placeholder="+7 900 000-00-00" required>
+            </label>
+          </div>
+
+          <label>
+            Тема заявки
+            <select id="topic">
+              <option>Общий вопрос</option>
+              <option>Заказ услуги</option>
+              <option>Техническая проблема</option>
+              <option>Сотрудничество</option>
+              <option>Другое</option>
+            </select>
+          </label>
+
+          <label>
+            Текст заявки *
+            <textarea id="message" rows="6" placeholder="Опишите вашу задачу..." required></textarea>
+          </label>
+
+          <label class="check">
+            <input id="agree" type="checkbox" required>
+            <span>Я подтверждаю, что указал(а) корректные данные.</span>
+          </label>
+
+          <button class="submit-btn" type="submit">Отправить заявку</button>
+          <div id="success" class="success" hidden>✓ Заявка успешно сохранена!</div>
+        </form>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-title center">
+          <div class="eyebrow">КАК ЭТО РАБОТАЕТ</div>
+          <h2>Всего три шага</h2>
+        </div>
+        <div class="steps">
+          <div class="step"><b>01</b><h3>Заполните форму</h3><p>Укажите имя, контакт и опишите вопрос.</p></div>
+          <div class="step"><b>02</b><h3>Отправьте заявку</h3><p>Нажмите кнопку — заявка сохранится.</p></div>
+          <div class="step"><b>03</b><h3>Проверьте заявки</h3><p>Откройте «Мои заявки», чтобы увидеть отправленные данные.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="adminModal" class="modal" hidden>
+    <div class="modal-box">
+      <button class="close" onclick="closeAdmin()">×</button>
+      <div class="eyebrow">ПАНЕЛЬ ЗАЯВОК</div>
+      <h2>Мои заявки</h2>
+      <div id="requestsList"></div>
+      <button class="clear-btn" onclick="clearRequests()">Удалить все заявки</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">© 2026 Заявки+ · Сайт для приёма заявок</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
